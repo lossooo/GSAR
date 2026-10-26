@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gsar-gui"
+version = "0.1.0"
+description = "Goal-State-Anchor Rewards for mobile GUI agents with self-evolving data synthesis"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [{name = "Long Zhang"}, {name = "GSAR contributors"}]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "colorama>=0.4,<1",
+  "ImageHash>=4.3,<5",
+  "numpy>=1.26,<3",
+  "opencv-python-headless>=4.10,<5",
+  "openai>=1.40,<3",
+  "Pillow>=10,<13",
+  "PyYAML>=6,<7",
+  "tenacity>=8,<10",
+  "tqdm>=4.66,<5",
+]
+
+[project.optional-dependencies]
+synthesis = [
+  "adbutils>=2.8,<3", "uiautomator2>=3.2,<4",
+]
+sft = ["qwen-agent>=0.0.15,<1"]
+all = [
+  "adbutils>=2.8,<3",
+  "qwen-agent>=0.0.15,<1",
+  "uiautomator2>=3.2,<4",
+]
+
+[project.urls]
+Homepage = "https://github.com/lossooo/GSAR"
+Paper = "https://arxiv.org/abs/2608.22847"
+
+[project.scripts]
+gsar-anchor = "gsar.verification.anchoring:main"
+gsar-analyze-synthesis = "gsar.synthesis.analyze_results:main"
+gsar-convert-qwen = "gsar.sft.convert_traj_to_qwen2p5:main"
+gsar-convert-uitars = "gsar.sft.convert_traj_to_uitars1:main"
+gsar-filter = "gsar.synthesis.filter_traj:main"
+gsar-postprocess = "gsar.sft.postprocess:main"
+gsar-statistics = "gsar.sft.statistics:main"
+gsar-synthesize = "gsar.synthesis.run_async:cli"
+gsar-verify = "gsar.verification.reward:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"gsar.verification" = ["images/digirl/*.png"]

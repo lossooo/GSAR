@@ -1,0 +1,32 @@
+# Python
+**/__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# Generated datasets, screenshots, rewards, logs, and emulator copies
+data/
+*.log
+*.json.bak
+**/run_logs*/
+**/tmp/
+
+# APKs and model artifacts
+tools/apk/apks_*/
+*.apk
+*.pt
+*.pth
+*.safetensors
+*.zip
+
+# Local configuration and credentials
+.env
+configs/*.local.yaml
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store

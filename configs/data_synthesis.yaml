@@ -1,0 +1,28 @@
+# Paths are resolved relative to the repository root.
+data_collect:
+  data_root: data/datasets/data_synthesis
+  log_dir: data/logs/synthesis
+  apk_dir_extra: tools/apk/apks_extra
+  package_path_aw: tools/apk/package_name_apks_aw.json
+  package_path_extra: tools/apk/package_name_apks_extra.json
+
+  # aw | extra | all
+  pkg_type: aw
+  max_iteration: 5
+  max_breadth: 10
+  max_depth: 7
+  max_tasks: 5
+  max_step: 20
+  add_step: 5
+
+runtime:
+  max_retries: 2
+  max_concurrent_devices: 16
+
+emulator:
+  source_name: Pixel_API_35
+  avd_dir: ~/.android/avd
+  working_dir: data/emulators
+  count: 1
+  base_port: 5554
+  base_grpc_port: 8970

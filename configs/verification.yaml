@@ -1,0 +1,7 @@
+# Paths are resolved relative to the repository root.
+method: goalstate
+traj_data_path: data/verification/test_data.json
+anchor_source_path: data/verification/successful_trajectories.json
+labeled_data_path: data/verification/goal_state_anchors.json
+reward_output_dir: data/verification/results
+max_workers: 4
